@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="brand">Toutes les sections </div> 
+   
+  <div class="row">        
+       
+      <div class="sections">        
+        <div *ngFor="let section of sections">
+           <div class="box">
+               <hr>
+                    <h2 class="intro-text text-center">
+                      <strong>{{section.name}}</strong>                        
+                    </h2>
+                    <hr>  
+                     <div *ngIf="section.subject.length==0">
+                        <h3 class="intro-text text-center">
+                      <strong> Pas de matières pour cette section</strong>
+                        </h3>                 
+                      </div>          
+              <ul class="subjects">
+               
+              <li *ngFor="let subject of section.subject" >
+                  <h5 class="intro-text">{{subject.name}}</h5>
+              </li>
+            </ul>
+          </div>
+          
+        </div>        
+      </div>
+      
+    
+  </div>
+</div>

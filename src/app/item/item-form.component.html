@@ -1,0 +1,61 @@
+<!-- Formulaire d'ajout de item-->
+<div class="container">
+    <div class="row addSubject">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Formulaire d'ajout d'item                       
+                    </h2>
+                    <hr>
+                   <p>Veuillez remplir ce formulaire pour creer un nouvel item</p>
+                   
+                    <form (ngSubmit)="onSubmit()" #itemForm="ngForm">
+                        <div class="row">
+                            <div class="form-group col-lg-4">
+                                <label for="serie" >Série</label>
+                                <!--<input id="serie" name="serie" type="text" class="form-control" required [(ngModel)]="item.serie" #serie="ngModel"  />-->
+                                
+                                <select class="form-control" id="serie" [(ngModel)]="item.serie" name="serie" required>
+                                    <option *ngFor="let serie of series" [value]="serie">{{serie}}</option>
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-lg-4">
+                                <label for="year" >Année</label>
+                                <input id="year" name="year" type="text" class="form-control" required [(ngModel)]="item.year" #year="ngModel" pattern="^(19|20)\d{2}$"/>
+                            {{item.year}}
+                                <div [hidden]="year.valid || year.pristine"
+                                    class="alert alert-danger">
+                                  L'année de l'item est obligatoire et doit comporter une année valide[exemple:1989]
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="row form-inline">
+                        <fieldset>
+                             <legend >Cocher les sujets auxquels appartient cet item*</legend>
+                            <div class="form-group col-lg-4" *ngFor="let subject of subjects">
+                               
+                                <label >
+                                    <input id={{subject._id}} class="form-control" name="subject" type="checkbox" [value]="subject._id" (change)="choosedSubjects(subject)">
+                                    {{subject.name}}
+                                </label>                           
+                            </div>
+                        </fieldset>
+                        </div>
+                        <div class="row">                           
+                            <div class="form-group col-lg-12">
+                                <button type="button" class="btn btn-default" (click)="newItem()" [disabled]="!itemForm.form.valid || (checkedSubjects?.length==0)">Ajouter une item</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+</div>
+
+   <!--fin fomulaire d'ajout de item-->

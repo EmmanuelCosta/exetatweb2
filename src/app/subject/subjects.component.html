@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="brand">Tous les sujets </div> 
+   
+  <div class="row">        
+       
+      <div class="subjects">        
+        <div *ngFor="let subject of subjects">
+           <div class="box">
+               <hr>
+                    <h2 class="intro-text text-center">
+                      <strong>{{subject.name}}</strong>                        
+                    </h2>
+               <hr>   
+               <div *ngIf="subject.item.length==0">
+                  <h3 class="intro-text text-center">
+                 <strong> Pas d'items pour cette matière</strong>
+                  </h3>                 
+                </div>         
+              <ul class="items">
+                
+              <li *ngFor="let item of subject.item" >
+                 <h6 class="intro-text">serie: {{item.serie}} / Année: {{item.year}}</h6>
+              </li>
+            </ul>
+          </div>
+          
+        </div>        
+      </div>
+      
+    
+  </div>
+</div>

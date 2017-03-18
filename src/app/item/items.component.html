@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="brand">Tous les items </div> 
+   
+  <div class="row">        
+       
+      <div class="items">        
+        <div *ngFor="let item of items">
+           <div class="box">
+               <hr>
+                    <h2 class="intro-text text-center">
+                      <strong>serie: {{item.serie}} -- {{item.year}}</strong>                        
+                    </h2>
+               <hr>   
+               <div *ngIf="item.question.length==0">
+                  <h3 class="intro-text text-center">
+                 <strong> Pas de questions pour cette matière</strong>
+                  </h3>                 
+                </div>
+                 <div *ngIf="item.question.length!=0">
+                  <h3 class="intro-text text-center">
+                 <strong> Il y a actuellement {{item.question?.length}} question(s) enregistrée(s)</strong>
+                  </h3>                 
+                </div>   
+                <div class="text-center"> 
+                   <hr>
+                    <button type="button" class="btn btn-info btn-sm" [routerLink]="['/addQuestion/',item._id]">Ajouter une question</button>
+                  <hr> 
+                </div>
+
+                <div class="question">
+
+                </div>
+                
+                     
+                
+
+          </div>
+          
+        </div>        
+      </div>
+      
+    
+  </div>
+</div>
