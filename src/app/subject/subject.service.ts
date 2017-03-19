@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class SubjectService{
 
-      private EXETATAPI="http://localhost:3300";
+      private EXETATAPI="https://exetat-server.herokuapp.com";
     
 
       constructor(private http: Http) { 

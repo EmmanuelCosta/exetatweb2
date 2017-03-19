@@ -6,9 +6,9 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class ItemService{
 
-      private EXETATAPI="http://localhost:3300";
+      private EXETATAPI="https://exetat-server.herokuapp.com";
     
-
+//http://localhost:3300
       constructor(private http: Http) { 
       }
       
